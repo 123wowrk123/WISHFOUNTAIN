@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishing Fountain</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #282c34;
+      color: #61dafb;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .fountain {
+      white-space: pre;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .coins {
+      margin-top: 20px;
+      color: #f39c12;
+    }
+
+    input,
+    button {
+      font-size: 16px;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>~ WISHFOUNTAIN FOR A BULL ~</h1>
+  <div class="fountain" id="fountain">
+    ~~~~~~~~~~~~~~~~
+    | |
+    ~~~~~ ~~~~~
+    | | | |
+    ~~~~~~~~ * ~~~~~~~~~~~
+    | | | |
+    ~~~~~~~~~~~~~~~~
+    | |
+    ~~~~~~~~~~~
+    ||||| |||||
+    ||||| |||||
+    ||||| |||||
+  </div>
+  <div class="coins" id="coins"></div>
+
+  <input type="text" id="wishInput" placeholder="Type your wish...">
+  <input type="text" id="coinInput" placeholder="Type your coin...">
+  <button onclick="makeWish()">Make a Wish</button>
+
+  <script>
+    const coins = [];
+
+        function updateFountain() {
+            const coinsDiv = document.getElementById("coins");
+            if (coins.length > 0) {
+                coinsDiv.textContent = "Coins in the fountain: " + coins.join(", ");
+            } else {
+                coinsDiv.textContent = "";
+            }
+        }
+
+        function makeWish() {
+            const wishInput = document.getElementById("wishInput").value.trim();
+            const coinInput = document.getElementById("coinInput").value.trim();
+
+            if (!wishInput || !coinInput) {
+                alert("Please enter both a wish and a coin type!");
+                return;
+            }
+
+            coins.push(coinInput);
+            alert(`Your wish '${wishInput}' has been made with a ${coinInput} coin.`);
+            updateFountain();
+
+            document.getElementById("wishInput").value = "";
+            document.getElementById("coinInput").value = "";
+        }
+  </script>
+</body>
+
+</html>
