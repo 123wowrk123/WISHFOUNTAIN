@@ -31,11 +31,32 @@
       padding: 10px;
       margin: 10px;
     }
+
+    .footer-text {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: #999;
+    }
+
+    .twitter-link {
+      display: block;
+      margin: 20px auto;
+      font-size: 14px;
+      color: #1da1f2;
+      text-decoration: none;
+    }
+
+    .twitter-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
 <body>
-  <h1>~ WISHFOUNTAIN FOR A BULL ~</h1>
+  <h1>~ WISH FOUNTAIN FOR A BULL ~</h1>
   <div class="fountain" id="fountain">
     ~~~~~~~~~~~~~~~~
     | |
@@ -56,34 +77,41 @@
   <input type="text" id="coinInput" placeholder="Type your coin...">
   <button onclick="makeWish()">Make a Wish</button>
 
+  <!-- Hyperlink to Twitter -->
+  <a class="twitter-link" href="https://x.com/wishfountainSol" target="_blank">
+    The only fountain to follow on X
+  </a>
+
+  <div class="footer-text">for entertainment purposes only</div>
+
   <script>
     const coins = [];
 
-        function updateFountain() {
-            const coinsDiv = document.getElementById("coins");
-            if (coins.length > 0) {
-                coinsDiv.textContent = "Coins in the fountain: " + coins.join(", ");
-            } else {
-                coinsDiv.textContent = "";
-            }
-        }
+    function updateFountain() {
+      const coinsDiv = document.getElementById("coins");
+      if (coins.length > 0) {
+        coinsDiv.textContent = "Coins in the fountain: " + coins.join(", ");
+      } else {
+        coinsDiv.textContent = "";
+      }
+    }
 
-        function makeWish() {
-            const wishInput = document.getElementById("wishInput").value.trim();
-            const coinInput = document.getElementById("coinInput").value.trim();
+    function makeWish() {
+      const wishInput = document.getElementById("wishInput").value.trim();
+      const coinInput = document.getElementById("coinInput").value.trim();
 
-            if (!wishInput || !coinInput) {
-                alert("Please enter both a wish and a coin type!");
-                return;
-            }
+      if (!wishInput || !coinInput) {
+        alert("Please enter both a wish and a coin type!");
+        return;
+      }
 
-            coins.push(coinInput);
-            alert(`Your wish '${wishInput}' has been made with a ${coinInput} coin.`);
-            updateFountain();
+      coins.push(coinInput);
+      alert(`Your wish '${wishInput}' has been made with a ${coinInput} coin.`);
+      updateFountain();
 
-            document.getElementById("wishInput").value = "";
-            document.getElementById("coinInput").value = "";
-        }
+      document.getElementById("wishInput").value = "";
+      document.getElementById("coinInput").value = "";
+    }
   </script>
 </body>
 
