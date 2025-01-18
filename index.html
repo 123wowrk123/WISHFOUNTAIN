@@ -41,7 +41,15 @@
       color: #999;
     }
 
-    .twitter-link {
+    .powered-by {
+      font-size: 12px;
+      color: #ffffff;
+      margin-top: 30px;
+      /* Add margin above powered-by text */
+    }
+
+    .twitter-link,
+    .pump-link {
       display: block;
       margin: 20px auto;
       font-size: 14px;
@@ -49,7 +57,13 @@
       text-decoration: none;
     }
 
-    .twitter-link:hover {
+    .pump-link {
+      margin-top: 40px;
+      /* Add extra spacing above Pump link */
+    }
+
+    .twitter-link:hover,
+    .pump-link:hover {
       text-decoration: underline;
     }
   </style>
@@ -82,7 +96,16 @@
     The only fountain to follow on X
   </a>
 
-  <div class="footer-text">for entertainment purposes only</div>
+  <!-- Link to https://pump.fun/board -->
+  <a class="pump-link" href="https://pump.fun/board" target="_blank">
+    Pump
+  </a>
+
+  <!-- "Powered by SOL" text -->
+  <div class="powered-by">Powered by SOL</div>
+
+  <!-- "Entertainment purposes only" text -->
+  <div class="footer-text">$ for entertainment purposes only</div>
 
   <script>
     const coins = [];
