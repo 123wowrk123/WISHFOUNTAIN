@@ -32,6 +32,21 @@
       margin: 10px;
     }
 
+    #randomButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #randomButton:hover {
+      background-color: #0056b3;
+    }
+
     .footer-text {
       position: fixed;
       bottom: 10px;
@@ -45,7 +60,6 @@
       font-size: 12px;
       color: #ffffff;
       margin-top: 30px;
-      /* Add margin above powered-by text */
     }
 
     .twitter-link,
@@ -58,8 +72,7 @@
     }
 
     .pump-link {
-      margin-top: 0;
-      /* Remove extra spacing above Pump link */
+      margin-top: 40px;
     }
 
     .twitter-link:hover,
@@ -72,18 +85,18 @@
 <body>
   <h1>~ WISH FOUNTAIN FOR A BULL ~</h1>
   <div class="fountain" id="fountain">
-  ~~~~~~~~~~~~~~~~
-  | |
-  ~~~~~ ~~~~~
-  | | | |
-  ~~~~~~~~ * ~~~~~~~~~~~
-  | | | |
-  ~~~~~~~~~~~~~~~~
-  | |
-  ~~~~~~~~~~~
-  ||||| |||||
-  ||||| |||||
-  ||||| |||||
+    ~~~~~~~~~~~~~~~~
+    | |
+    ~~~~~ ~~~~~
+    | | | |
+    ~~~~~~~~ * ~~~~~~~~~~~
+    | | | |
+    ~~~~~~~~~~~~~~~~
+    | |
+    ~~~~~~~~~~~
+    ||||| |||||
+    ||||| |||||
+    ||||| |||||
   </div>
   <div class="coins" id="coins"></div>
 
@@ -91,22 +104,25 @@
   <input type="text" id="coinInput" placeholder="Type your coin...">
   <button onclick="makeWish()">Make a Wish</button>
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- Added three extra blank lines -->
+  <button id="randomButton">Click Me</button>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>  <!-- Added three extra blank lines -->
 
   <!-- Hyperlink to Twitter -->
   <a class="twitter-link" href="https://x.com/wishfountainSol" target="_blank">
     The only fountain to follow on X
   </a>
+
   <!-- Link to https://pump.fun/board -->
   <a class="pump-link" href="https://pump.fun/board" target="_blank">
-   $wishfountain at Pump
+   $wishfountain at pump
   </a>
-<br><br><br><br><br><br><br><br>
+
   <!-- "Powered by SOL" text -->
   <div class="powered-by">Powered by SOL</div>
 
   <!-- "Entertainment purposes only" text -->
-  <div class="footer-text">Type your wish, and I shall consider it</div>
+  <div class="footer-text">$ for entertainment purposes only</div>
 
   <script>
     const coins = [];
@@ -136,6 +152,22 @@
       document.getElementById("wishInput").value = "";
       document.getElementById("coinInput").value = "";
     }
+
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Add event listener to the button
+    document.getElementById('randomButton').addEventListener('click', () => {
+      // Change the background color of the body to a random color
+      document.body.style.backgroundColor = getRandomColor();
+    });
   </script>
 </body>
 
